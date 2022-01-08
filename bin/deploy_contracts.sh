@@ -50,21 +50,6 @@ then
 fi
 sleep 1
 
-${DEPLOYER_HOME}/btc_prepare -conf ${POLY_HOME}/lib/tools/config.json
-if [ $? -ne 0 ]
-then
-    echo "${LOG_PREFIX}failed to prepare btc"
-    exit 1
-fi
-sleep 1
-
-${DEPLOYER_HOME}/cosmos_prepare -conf ${POLY_HOME}/lib/tools/config.json
-if [ $? -ne 0 ]
-then
-    echo "${LOG_PREFIX}failed to prepare cosmos"
-    exit 1
-fi
-sleep 1
 
 echo "${LOG_PREFIX}start to setup contracts"
 ${DEPLOYER_HOME}/ont_deployer -func setup -conf ${POLY_HOME}/lib/tools/config.json

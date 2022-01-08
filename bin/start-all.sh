@@ -5,13 +5,6 @@ POLY_HOME=`cd "$bin"/..; pwd`
 
 
 
-# start all chains
-${POLY_HOME}/bin/start_btc_chain.sh
-if [ $? -ne 0 ]
-then
-    echo "failed to start bitcoin"
-    exit 1
-fi
 ${POLY_HOME}/bin/start_eth_chain.sh
 if [ $? -ne 0 ]
 then
@@ -30,12 +23,6 @@ then
     echo "failed to start poly chain"
     exit 1
 fi
-${POLY_HOME}/bin/start_gaia_chain.sh
-if [ $? -ne 0 ]
-then
-    echo "failed to start gaia chain"
-    exit 1
-fi
 
 # deploy all contracts
 ${POLY_HOME}/bin/deploy_contracts.sh
@@ -52,13 +39,6 @@ then
     exit 1
 fi
 
-# start all relayers
-${POLY_HOME}/bin/start_btc_relayer.sh
-if [ $? -ne 0 ]
-then
-    echo "failed to start btc relayer"
-    exit 1
-fi
 ${POLY_HOME}/bin/start_eth_relayer.sh
 if [ $? -ne 0 ]
 then
@@ -71,12 +51,7 @@ then
     echo "failed to start ont relayer"
     exit 1
 fi
-${POLY_HOME}/bin/start_gaia_relayer.sh
-if [ $? -ne 0 ]
-then
-    echo "failed to start gaia relayer"
-    exit 1
-fi
+
 
 # start vendors
 ${POLY_HOME}/bin/start_vendor_tool.sh
